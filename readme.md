@@ -223,3 +223,12 @@ You can use the `RouteManager`-facade in blade views:
 ```php
 {{ RouteManager::routeByName('test')->url() }}
 ```
+
+## Routes cache
+
+When using the Db service provider, through a Proxy layer the routes
+can be cached. They can be cached if you add the following flag to your `.env` file:
+
+```
+ROUTE_CACHE_TIME=3600
+```
