@@ -63,7 +63,7 @@ class Route
 
     public function middleware()
     {
-        return $this->middleware;
+        return array_filter($this->middleware);
     }
 
     public function withUrl(string $url)
