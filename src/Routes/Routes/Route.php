@@ -5,16 +5,16 @@ namespace Douma\Routes\Routes;
 class Route
 {
     static $NULL;
-    private $url, $isPattern=false, $name, $controller, $action, $parameters, $getParameters;
+    private $url, $isPattern=false, $name, $controller, $action, $parameters, $getParameters, $middleware = [];
 
     public function __construct(string $url, bool $isPattern, string $name,
-        string $controller, string $action
-    ) {
+                                string $controller, string $action, array $middleware) {
         $this->url = $url;
         $this->isPattern = $isPattern;
         $this->name = $name;
         $this->controller = $controller;
         $this->action = $action;
+        $this->middleware = $middleware;
     }
 
     private function replaceParameters(string $url)
@@ -61,13 +61,18 @@ class Route
         $this->parameters;
     }
 
+    public function middleware()
+    {
+        return $this->middleware;
+    }
+
     public function withUrl(string $url)
     {
         $route = clone $this;
         $route->url = $url;
         return $route;
     }
-    
+
     public function withGetParameters(array $parameters)
     {
         $route = clone $this;
@@ -114,6 +119,13 @@ class Route
     {
         $route = clone $this;
         $route->parameters[$parameter] = $value;
+        return $route;
+    }
+
+    public function withMiddleware(array $middleware)
+    {
+        $route = clone $this;
+        $route->middleware = $middleware;
         return $route;
     }
 }

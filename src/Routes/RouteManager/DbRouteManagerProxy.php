@@ -13,13 +13,14 @@ class DbRouteManagerProxy implements Contracts\RouteManager
 
     public function addRoute(Route $route)
     {
-        \DB::statement("REPLACE INTO routes (url, name, is_pattern, controller, action) 
-            VALUES(?, ?, ?, ?, ?)",[
-                $route->url(),
-                $route->name(),
-                $route->isPattern(),
-                $route->controller(),
-                $route->action()
+        \DB::statement("REPLACE INTO routes (url, name, is_pattern, controller, action, middleware)
+            VALUES(?, ?, ?, ?, ?, ?)",[
+            $route->url(),
+            $route->name(),
+            $route->isPattern(),
+            $route->controller(),
+            $route->action(),
+            implode(",", $route->middleware())
         ]);
     }
 
@@ -33,7 +34,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
                 $select[0]->name,
                 $select[0]->controller,
                 $select[0]->action,
-                []
+                explode(",", $select[0]->middleware)
             );
         }
         return Route::$NULL;
@@ -49,7 +50,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
                 $select[0]->name,
                 $select[0]->controller,
                 $select[0]->action,
-                []
+                explode(",", $select[0]->middleware)
             );
         }
         return Route::$NULL;
@@ -66,7 +67,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
                 $select[0]->name,
                 $select[0]->controller,
                 $select[0]->action,
-                []
+                explode(",", $select[0]->middleware)
             );
         }
         return $return;

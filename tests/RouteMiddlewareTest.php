@@ -13,12 +13,17 @@ final class RouteMiddlewareTest extends \Tests\TestCase
     {
         $routeManager = new \Douma\Routes\RouteManager\RouteManager();
         $route = new \Douma\Routes\Routes\Route(
-            '/test', false, 'existing_route', 'MyController', 'index', []
+            '/test', false, 'existing_route', 'MyController', 'index', ['custom']
         );
         $routeManager->addRoute($route);
 
         $sut = new \Douma\Routes\Middleware\RouteMiddleware($routeManager);
         $spy = \Illuminate\Support\Facades\Route::spy();
+        $route = \Mockery::mock(\Illuminate\Routing\Route::class)
+            ->shouldReceive('middleware')->once()->withArgs([['custom']])
+            ->getMock();
+        $spy->shouldReceive('any')->andReturn($route)
+            ->getMock();
         $sut->handle($this->_getRequestObject(), function(){});
 
         $spy->shouldHaveReceived('any')
@@ -44,6 +49,12 @@ final class RouteMiddlewareTest extends \Tests\TestCase
 
         $sut = new \Douma\Routes\Middleware\RouteMiddleware($routeManager);
         $spy = \Illuminate\Support\Facades\Route::spy();
+        $route = \Mockery::mock(\Illuminate\Routing\Route::class)
+            ->shouldReceive('middleware')->times(3)->withArgs([[]])
+            ->getMock();
+        $spy->shouldReceive('any')->andReturn($route)
+            ->getMock();
+
         $sut->handle($this->_getRequestObject(), function(){});
 
         $spy->shouldHaveReceived('any')

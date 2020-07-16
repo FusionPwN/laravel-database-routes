@@ -17,14 +17,13 @@ class RouteMiddleware
 
     public function handle($request, Closure $next)
     {
-        if($route = $this->routeManager->routeByUrl($request->getPathInfo()))
-        {
-            \Route::any($route->url(), $route->controller() . '@' . $route->action());
+        if ($route = $this->routeManager->routeByUrl($request->getPathInfo())) {
+            \Route::any($route->url(), $route->controller() . '@' . $route->action())
+                ->middleware($route->middleware());
         }
-
-        foreach($this->routeManager->routesWithPattern() as $route)
-        {
-            \Route::any($route->url(), $route->controller() . '@' . $route->action());
+        foreach ($this->routeManager->routesWithPattern() as $route) {
+            \Route::any($route->url(), $route->controller() . '@' . $route->action())
+                ->middleware($route->middleware());
         }
 
         return $next($request);
