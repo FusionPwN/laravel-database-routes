@@ -22,10 +22,11 @@ CREATE TABLE `routes` (
   `name` varchar(255) DEFAULT NULL,
   `controller` varchar(255) DEFAULT NULL,
   `action` varchar(255) DEFAULT NULL,
+  `middleware` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `url_unique` (`url`),
   UNIQUE KEY `unique_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=211 DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
 ```
 
 ### Service Provider
@@ -68,7 +69,7 @@ class RoutesGenerateCommand extends Command
     
     private $routeManager;
     
-    public function __construct(RouteManager $routeManager, /* Your other dependencies */)
+    public function __construct(RouteManager $routeManager /*, Your other dependencies */)
     {
         $this->routeManager = $routeManager;
     }
@@ -77,7 +78,7 @@ class RoutesGenerateCommand extends Command
     {
         $this->info('Generating routes');
         $this->routeManager->addRoute(
-            new Route('/my-route',false, 'test1', Controller::class, 'index')
+            new Route('/my-route',false, 'test1', Controller::class, 'index', ['middleware'])
         );
     }
 }
@@ -90,7 +91,7 @@ Run the command for example every 2-5 minutes.
 ```php
     $this->routeManager->addRoute(
     new Route(
-        '/test-test/{id}', true, 'test01234', Controller::class, 'index'
+        '/test-test/{id}', true, 'test01234', Controller::class, 'index', ['middleware']
     ));
 ```
 
@@ -105,7 +106,7 @@ class MyPageRoute extends Route
     {
         return new self(
             "/" . $page->getColumn('slug'), false, "page" .$page->getColumn('id'),
-            PageController::class, 'index'
+            PageController::class, 'index', ['middleware']
         );
     }
 }
@@ -160,6 +161,7 @@ $newRoute = $route->withName('test2');
 $newRoute = $newRoute->withUrl('/my-new-route');
 $newRoute = $newRoute->withIsPattern(false);
 $newRoute = $newRoute->withController(Controller2::class);
+$newRoute = $newRoute->withMiddleware(['test']);
 $newRoute = $newRoute->withAction('another-action');
 ```
 
