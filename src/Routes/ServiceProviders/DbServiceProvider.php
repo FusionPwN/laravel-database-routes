@@ -8,11 +8,12 @@ use Douma\Routes\Routes\NullRoute;
 use Douma\Routes\Routes\Route;
 use Douma\Routes\RouteManager\DbRouteManagerProxy;
 
-class DbServiceProvider extends \Illuminate\Support\ServiceProvider
+class DbServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
-        Route::$NULL = NullRoute::invoke();
+        $this->nullRoute();
+        $this->migrations();
         app()->bind(Contracts\RouteManager::class, function() {
             return new CacheRouteManagerProxy(new DbRouteManagerProxy());
         });

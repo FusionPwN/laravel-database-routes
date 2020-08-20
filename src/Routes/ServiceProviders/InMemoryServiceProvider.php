@@ -7,11 +7,12 @@ use Douma\Routes\NullRoute;
 use Douma\Routes\Route;
 use Douma\Routes\RouteManager\RouteManager;
 
-class InMemoryServiceProvider extends \Illuminate\Support\ServiceProvider
+class InMemoryServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
-        Route::$NULL = NullRoute::invoke();
+        $this->nullRoute();
+        $this->migrations();
         app()->bind(Contracts\RouteManager::class, RouteManager::class);
     }
 }
