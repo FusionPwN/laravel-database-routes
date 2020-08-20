@@ -34,7 +34,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
                 $select[0]->name,
                 $select[0]->controller,
                 $select[0]->action,
-                explode(",", $select[0]->middleware)
+                array_filter(explode(",", $select[0]->middleware))
             );
         }
         return Route::$NULL;
@@ -50,7 +50,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
                 $select[0]->name,
                 $select[0]->controller,
                 $select[0]->action,
-                explode(",", $select[0]->middleware)
+                array_filter(explode(",", $select[0]->middleware))
             );
         }
         return Route::$NULL;
@@ -67,7 +67,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
                 $select[0]->name,
                 $select[0]->controller,
                 $select[0]->action,
-                explode(",", $select[0]->middleware)
+                array_filter(explode(",", $select[0]->middleware))
             );
         }
         return $return;
