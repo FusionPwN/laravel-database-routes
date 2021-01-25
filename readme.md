@@ -1,3 +1,9 @@
+[![Latest Stable Version](https://poser.pugx.org/douma/laravel-database-routes/v/stable)](https://packagist.org/packages/douma/laravel-database-routes)
+[![Total Downloads](https://poser.pugx.org/douma/laravel-database-routes/downloads)](https://packagist.org/packages/douma/laravel-database-routes)
+[![Monthly Downloads](https://poser.pugx.org/douma/laravel-database-routes/d/monthly)](https://packagist.org/packages/douma/laravel-database-routes)
+[![Latest Unstable Version](https://poser.pugx.org/douma/laravel-database-routes/v/unstable)](https://packagist.org/packages/douma/laravel-database-routes)
+[![License](https://poser.pugx.org/douma/simple-api-wrapper/license)](https://packagist.org/packages/douma/laravel-database-routes)
+
 # Laravel Route Manager for MySQL
 
 ![](https://unik.al/unik_content/uploads/2018/12/laravel-logo.png)
