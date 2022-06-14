@@ -87,7 +87,7 @@ class Route
         return $route;
     }
 
-    public function withIsPattern(boolean $isPattern)
+    public function withIsPattern(bool $isPattern)
     {
         $route = clone $this;
         $route->isPattern = $isPattern;
