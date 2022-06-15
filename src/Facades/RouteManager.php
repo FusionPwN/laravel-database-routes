@@ -1,8 +1,8 @@
 <?php
 
-namespace Douma\Routes\Facades;
+namespace Fusionpwn\Facades;
 
-use Douma\Routes\Contracts;
+use Fusionpwn\Contracts;
 use Illuminate\Support\Facades\Facade;
 
 class RouteManager extends Facade

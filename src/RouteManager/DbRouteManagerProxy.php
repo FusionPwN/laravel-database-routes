@@ -1,19 +1,20 @@
 <?php
 
-namespace Douma\Routes\RouteManager;
+namespace Fusionpwn\RouteManager;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
-use Douma\Routes\Contracts;
-use Douma\Routes\Routes\Route;
+use Fusionpwn\Contracts\RouteManager;
+use Fusionpwn\Routes\Route;
+use Illuminate\Support\Facades\DB;
 
-class DbRouteManagerProxy implements Contracts\RouteManager
+class DbRouteManagerProxy implements RouteManager
 {
     private $routes = [];
 
     public function addRoute(Route $route)
     {
-        \DB::statement("REPLACE INTO routes (url, name, is_pattern, controller, action, middleware)
+        DB::statement("REPLACE INTO routes (url, name, is_pattern, controller, action, middleware)
             VALUES(?, ?, ?, ?, ?, ?)",[
             $route->url(),
             $route->name(),
@@ -26,7 +27,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
 
     public function routeByUrl(string $url) : Route
     {
-        $select = \DB::select("SELECT * FROM routes WHERE url = ?", [$url]);
+        $select = DB::select("SELECT * FROM routes WHERE url = ?", [$url]);
         if(isset($select[0])) {
             return new Route(
                 $select[0]->url,
@@ -42,7 +43,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
 
     public function routeByName(string $name) : Route
     {
-        $select = \DB::select("SELECT * FROM routes WHERE name = ?", [$name]);
+        $select = DB::select("SELECT * FROM routes WHERE name = ?", [$name]);
         if(isset($select[0])) {
             return new Route(
                 $select[0]->url,
@@ -59,7 +60,7 @@ class DbRouteManagerProxy implements Contracts\RouteManager
     public function routesWithPattern() : array
     {
         $return = [];
-        $select = \DB::select("SELECT * FROM routes WHERE is_pattern = 1");
+        $select = DB::select("SELECT * FROM routes WHERE is_pattern = 1");
         foreach($select as $item) {
             $return[] = new Route(
                 $select[0]->url,

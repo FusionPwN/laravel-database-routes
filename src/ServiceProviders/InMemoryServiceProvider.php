@@ -1,18 +1,17 @@
 <?php
 
-namespace Douma\Routes\ServiceProviders;
+namespace Fusionpwn\ServiceProviders;
 
-use Douma\Routes\Contracts;
-use Douma\Routes\NullRoute;
-use Douma\Routes\Route;
-use Douma\Routes\RouteManager\RouteManager;
+use Fusionpwn\Contracts;
+use Fusionpwn\NullRoute;
+use Fusionpwn\Routes\Route;
+use Fusionpwn\RouteManager\RouteManager;
 
 class InMemoryServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
         $this->nullRoute();
-        $this->migrations();
         app()->bind(Contracts\RouteManager::class, RouteManager::class);
     }
 }

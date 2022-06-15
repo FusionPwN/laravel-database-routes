@@ -1,10 +1,10 @@
 <?php
 
-namespace Douma\Routes\Contracts;
+namespace Fusionpwn\Contracts;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
-use Douma\Routes\Routes\Route;
+use Fusionpwn\Routes\Route;
 
 interface RouteManager
 {

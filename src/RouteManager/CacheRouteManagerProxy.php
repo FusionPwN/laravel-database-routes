@@ -1,14 +1,15 @@
 <?php
 
-namespace Douma\Routes\RouteManager;
+namespace Fusionpwn\RouteManager;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
-use Douma\Routes\Contracts;
-use Douma\Routes\Routes\Route;
+use Fusionpwn\Contracts;
+use Fusionpwn\Contracts\RouteManager;
+use Fusionpwn\Routes\Route;
 use Illuminate\Cache\CacheManager;
 
-class CacheRouteManagerProxy implements Contracts\RouteManager
+class CacheRouteManagerProxy implements RouteManager
 {
     private $routeManager;
 

@@ -4,8 +4,8 @@ namespace Douma\Routes\RouteManager;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
-use Douma\Routes\Routes\Route;
-use Douma\Routes\Contracts;
+use Fusionpwn\Routes\Route;
+use Fusionpwn\Contracts;
 
 class RouteManager implements Contracts\RouteManager
 {

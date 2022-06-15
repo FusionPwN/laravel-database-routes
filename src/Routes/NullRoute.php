@@ -1,6 +1,6 @@
 <?php
 
-namespace Douma\Routes\Routes;
+namespace Fusionpwn\Routes;
 
 use App\Controllers\PageController;
 
