@@ -13,7 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Douma\\Routes\\": "src/Routes/"
+      "Fusionpwn\\laravel-database-routes": "src/"
     }
   },
   "require": {
