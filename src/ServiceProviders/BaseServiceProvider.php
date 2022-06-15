@@ -8,7 +8,7 @@ use Fusionpwn\LaravelDatabaseRoutes\Routes\NullRoute;
 use Fusionpwn\LaravelDatabaseRoutes\Routes\Route;
 use Fusionpwn\LaravelDatabaseRoutes\RouteManager\DbRouteManagerProxy;
 
-abstract class BaseServiceProvider extends \Illuminate\Support\ServiceProvider
+class BaseServiceProvider extends \Illuminate\Support\ServiceProvider
 {
 	public function boot()
 	{
