@@ -13,7 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Fusionpwn\\LaravelDatabaseRoutes\\": "src"
+      "Fusionpwn\\LaravelDatabaseRoutes\\": "src/"
     }
   },
   "require": {
