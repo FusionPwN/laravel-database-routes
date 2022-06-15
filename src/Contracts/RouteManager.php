@@ -1,10 +1,10 @@
 <?php
 
-namespace Fusionpwn\Contracts;
+namespace Fusionpwn\LaravelDatabaseRoutes\Contracts;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
-use Fusionpwn\Routes\Route;
+use Fusionpwn\LaravelDatabaseRoutes\Routes\Route;
 
 interface RouteManager
 {

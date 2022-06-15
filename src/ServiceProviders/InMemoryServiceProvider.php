@@ -1,11 +1,11 @@
 <?php
 
-namespace Fusionpwn\ServiceProviders;
+namespace Fusionpwn\LaravelDatabaseRoutes\ServiceProviders;
 
-use Fusionpwn\Contracts;
-use Fusionpwn\NullRoute;
-use Fusionpwn\Routes\Route;
-use Fusionpwn\RouteManager\RouteManager;
+use Fusionpwn\LaravelDatabaseRoutes\Contracts;
+use Fusionpwn\LaravelDatabaseRoutes\NullRoute;
+use Fusionpwn\LaravelDatabaseRoutes\Routes\Route;
+use Fusionpwn\LaravelDatabaseRoutes\RouteManager\RouteManager;
 
 class InMemoryServiceProvider extends BaseServiceProvider
 {

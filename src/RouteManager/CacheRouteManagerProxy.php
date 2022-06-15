@@ -1,12 +1,12 @@
 <?php
 
-namespace Fusionpwn\RouteManager;
+namespace Fusionpwn\LaravelDatabaseRoutes\RouteManager;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
-use Fusionpwn\Contracts;
-use Fusionpwn\Contracts\RouteManager;
-use Fusionpwn\Routes\Route;
+use Fusionpwn\LaravelDatabaseRoutes\Contracts;
+use Fusionpwn\LaravelDatabaseRoutes\Contracts\RouteManager;
+use Fusionpwn\LaravelDatabaseRoutes\Routes\Route;
 use Illuminate\Cache\CacheManager;
 
 class CacheRouteManagerProxy implements RouteManager

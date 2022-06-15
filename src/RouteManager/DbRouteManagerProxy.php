@@ -1,11 +1,11 @@
 <?php
 
-namespace Fusionpwn\RouteManager;
+namespace Fusionpwn\LaravelDatabaseRoutes\RouteManager;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
-use Fusionpwn\Contracts\RouteManager;
-use Fusionpwn\Routes\Route;
+use Fusionpwn\LaravelDatabaseRoutes\Contracts\RouteManager;
+use Fusionpwn\LaravelDatabaseRoutes\Routes\Route;
 use Illuminate\Support\Facades\DB;
 
 class DbRouteManagerProxy implements RouteManager

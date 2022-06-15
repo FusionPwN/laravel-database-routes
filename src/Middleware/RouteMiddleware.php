@@ -1,10 +1,10 @@
 <?php
 
-namespace Fusionpwn\Middleware;
+namespace Fusionpwn\LaravelDatabaseRoutes\Middleware;
 
 use Closure;
-use Fusionpwn\RouteManager\DbRouteManagerProxy;
-use Fusionpwn\Contracts\RouteManager;
+use Fusionpwn\LaravelDatabaseRoutes\RouteManager\DbRouteManagerProxy;
+use Fusionpwn\LaravelDatabaseRoutes\Contracts\RouteManager;
 use Illuminate\Support\Facades\Route;
 
 class RouteMiddleware

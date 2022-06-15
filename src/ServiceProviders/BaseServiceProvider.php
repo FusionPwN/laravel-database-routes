@@ -1,12 +1,12 @@
 <?php
 
-namespace Fusionpwn\ServiceProviders;
+namespace Fusionpwn\LaravelDatabaseRoutes\ServiceProviders;
 
-use Fusionpwn\Contracts;
-use Fusionpwn\RouteManager\CacheRouteManagerProxy;
-use Fusionpwn\Routes\NullRoute;
-use Fusionpwn\Routes\Route;
-use Fusionpwn\RouteManager\DbRouteManagerProxy;
+use Fusionpwn\LaravelDatabaseRoutes\Contracts;
+use Fusionpwn\LaravelDatabaseRoutes\RouteManager\CacheRouteManagerProxy;
+use Fusionpwn\LaravelDatabaseRoutes\Routes\NullRoute;
+use Fusionpwn\LaravelDatabaseRoutes\Routes\Route;
+use Fusionpwn\LaravelDatabaseRoutes\RouteManager\DbRouteManagerProxy;
 
 abstract class BaseServiceProvider extends \Illuminate\Support\ServiceProvider
 {

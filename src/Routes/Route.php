@@ -1,6 +1,6 @@
 <?php
 
-namespace Fusionpwn\Routes;
+namespace Fusionpwn\LaravelDatabaseRoutes\Routes;
 
 class Route
 {

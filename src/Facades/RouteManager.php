@@ -1,8 +1,8 @@
 <?php
 
-namespace Fusionpwn\Facades;
+namespace Fusionpwn\LaravelDatabaseRoutes\Facades;
 
-use Fusionpwn\Contracts;
+use Fusionpwn\LaravelDatabaseRoutes\Contracts;
 use Illuminate\Support\Facades\Facade;
 
 class RouteManager extends Facade

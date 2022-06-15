@@ -1,11 +1,11 @@
 <?php
 
-namespace Douma\Routes\RouteManager;
+namespace Fusionpwn\LaravelDatabaseRoutes\RouteManager;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\PageRepository;
-use Fusionpwn\Routes\Route;
-use Fusionpwn\Contracts;
+use Fusionpwn\LaravelDatabaseRoutes\Routes\Route;
+use Fusionpwn\LaravelDatabaseRoutes\Contracts;
 
 class RouteManager implements Contracts\RouteManager
 {
